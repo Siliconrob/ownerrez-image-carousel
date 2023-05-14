@@ -1,4 +1,4 @@
-![Uploading scroll.gif…]()
+![scroll](https://github.com/Siliconrob/ownerrez-image-carousel/assets/412511/b32abe3a-63c3-4ee0-aa66-da2f3b251179)
 
 # Hello and welcome to using Hapijs with the OwnerRez API!
 
