@@ -7,7 +7,7 @@ This project includes a Node.js server script
 - This project uses the [Hapijs](https://hapi.dev/) framework (I hope it makes you as happy as it does for me to use 😁) and explores basic routes on the [OwnerRez API](https://api.ownerreservations.com/help/v2).
 - **Do not use this in production**
 
-_Last updated: 15 Apr 2023_
+_Last updated: 13 May 2023_
 
 ## Prerequisites
 
@@ -17,13 +17,13 @@ You'll get best use out of this project if you're familiar with basic JavaScript
 
 ← `README.md`: That’s this file, where you can tell people what your cool website does and how you built it.
 
-← `public/style.css`: The styling rules for the pages in your site.
+← `public/index.html`: The styling with special CSS 
 
 ← `index.js`: The **Node.js** server script for your new site. The JavaScript defines the endpoints in the site back-end, one to return the homepage and one to update with the submitted color. Each one sends data to a Handlebars template which builds these parameter values into the web page the visitor sees.
 
 ← `package.json`: The NPM packages for your project's dependencies.
 
-← `routes/`: This folder holds all the predefined Swagger entry points for hapijs to communicate with the OwnerRez API.
+← `routes/properties.js`: This folder holds all the predefined Swagger entry points for hapijs to communicate with the OwnerRez API.  The properties route grabs the thumbnail urls for all the properties to display
 
 ← `src/`: This folder holds general server side helper files for working with hapijs.
 
