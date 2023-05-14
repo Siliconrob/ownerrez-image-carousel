@@ -1,3 +1,5 @@
+![Uploading scroll.gif…]()
+
 # Hello and welcome to using Hapijs with the OwnerRez API!
 
 This project includes a Node.js server script
