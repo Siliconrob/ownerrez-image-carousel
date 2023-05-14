@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Scrolling Images</title>
+    <meta name="description" content="Scrolling Images" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://glitch.com/edit/favicon-app.ico"
+      type="image/x-icon"
+    />
+    <style>
+      body {
+        align-items: center;
+        background: #e3e3e3;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-600px * 7));
+        }
+      }
+
+      .slider {
+        background: white;
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+        height: 400px;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        width: 960px;
+      }
+
+      .slider::before,
+      .slider::after {
+        background: linear-gradient(
+          to right,
+          white 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        content: "";
+        height: 400px;
+        position: absolute;
+        width: 600px;
+        z-index: 2;
+      }
+
+      .slider::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+      }
+
+      .slider::before {
+        left: 0;
+        top: 0;
+      }
+
+      .slider .slide-track {
+        animation: scroll 100s linear infinite;
+        display: flex;
+        width: calc(600px * 7);
+      }
+
+      .slider .slide {
+        height: 400px;
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      window.addEventListener(
+        "load",
+        (event) => {
+          loadImages();
+        },
+        false
+      );
+      
+      function attachNewImage(parentNode, imageUrl) {
+          const imageLink = document.createElement("img");
+          imageLink.src = imageUrl;
+          imageLink.alt = "Property Alt link";
+          const slideDiv = document.createElement("div");
+          slideDiv.className = "slide";
+          slideDiv.appendChild(imageLink);
+          parentNode.appendChild(slideDiv);        
+      };
+
+      async function loadImages() {
+        let response = await fetch(`${window.location.href}propertyImages`);
+        if (!response.ok) {
+          return;
+        }
+        const imageLinks = await response.json();
+        const slider = document.getElementsByClassName("slide-track")[0];
+
+        imageLinks.forEach((z) => {
+          attachNewImage(slider, z)
+        });
+      }
+    </script>
+    <div class="slider">
+      <div class="slide-track"></div>
+    </div>
+  </body>
+</html>
